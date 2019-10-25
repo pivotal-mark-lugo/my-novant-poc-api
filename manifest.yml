@@ -4,5 +4,5 @@ applications:
     memory: 1G
     random-route: true
     path: build/libs/my-novant-0.0.1-SNAPSHOT.jar
-    env:
-      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+  env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
