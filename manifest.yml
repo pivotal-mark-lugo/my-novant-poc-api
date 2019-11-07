@@ -6,3 +6,4 @@ applications:
     path: build/libs/my-novant-0.0.1-SNAPSHOT.jar
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+      SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUERURI: https://ping.uaa.sys.demo.azure.pcf-arau.pw/oauth/token

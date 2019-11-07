@@ -33,6 +33,11 @@ dependencies {
 	implementation("org.flywaydb:flyway-core")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+//	implementation("org.springframework.security.oauth:spring-security-oauth2:2.2.0.RELEASE")
+	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.1.5.RELEASE")
+	implementation("org.springframework.security:spring-security-oauth2-jose:5.1.5.RELEASE")
+	implementation("org.springframework.security:spring-security-config:5.1.5.RELEASE")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.postgresql:postgresql")
