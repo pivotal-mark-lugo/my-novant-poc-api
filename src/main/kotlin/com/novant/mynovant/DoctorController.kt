@@ -16,7 +16,7 @@ class DoctorController {
         Doctor(7, "Venkman", "Paranormal Investigation"),
         Doctor(8, "Moreau", "Genotherapy"),
         Doctor(9, "Jones", "Archaeology"),
-        Doctor(10, "Frankenstein", "Monstronomy"),
+        Doctor(10, "Frankenstein", "Necromancy"),
         Doctor(11, "Crusher", "General Practitioner")
     )
 }
