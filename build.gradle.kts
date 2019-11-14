@@ -22,6 +22,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven(url = "https://repo.spring.io/libs-release/")
 }
 
 dependencies {
@@ -30,13 +31,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-//	implementation("org.flywaydb:flyway-core")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-//	implementation("org.springframework.security.oauth:spring-security-oauth2:2.2.0.RELEASE")
 	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.1.5.RELEASE")
 	implementation("org.springframework.security:spring-security-oauth2-jose:5.1.5.RELEASE")
 	implementation("org.springframework.security:spring-security-config:5.1.5.RELEASE")
+
+	implementation("com.github.kittinunf.fuel:fuel:2.2.1")
+	implementation("com.github.kittinunf.fuel:fuel-json:2.2.1")
+
+	implementation("org.json:json:20190722")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")

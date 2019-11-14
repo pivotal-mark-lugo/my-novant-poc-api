@@ -1,12 +1,12 @@
-package com.novant.mynovant
+package com.novant.mynovant.configuration
 
+import com.novant.mynovant.CustomLogoutSuccessHandler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
-import org.springframework.security.core.Authentication
 import org.springframework.security.web.authentication.HttpStatusEntryPoint
 
 @EnableWebSecurity
@@ -27,6 +27,7 @@ open class WebSecurityConfiguration : WebSecurityConfigurerAdapter() {
             .and()
               .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/error").permitAll()
 //                .antMatchers("/logout").permitAll()
                 .anyRequest().authenticated()
