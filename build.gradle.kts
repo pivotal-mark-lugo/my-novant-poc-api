@@ -36,7 +36,9 @@ dependencies {
 	implementation("org.springframework.security:spring-security-oauth2-resource-server:5.1.5.RELEASE")
 	implementation("org.springframework.security:spring-security-oauth2-jose:5.1.5.RELEASE")
 	implementation("org.springframework.security:spring-security-config:5.1.5.RELEASE")
+	implementation("io.github.microutils:kotlin-logging:1.7.6")
 
+//compile group: 'io.github.microutils:kotlin-logging0-1.7.6'
 	implementation("com.github.kittinunf.fuel:fuel:2.2.1")
 	implementation("com.github.kittinunf.fuel:fuel-json:2.2.1")
 

@@ -1,4 +1,4 @@
-package com.novant.mynovant
+package com.novant.mynovant.configuration
 
 import org.springframework.security.oauth2.core.OAuth2TokenValidatorResult
 import org.springframework.security.oauth2.core.OAuth2Error

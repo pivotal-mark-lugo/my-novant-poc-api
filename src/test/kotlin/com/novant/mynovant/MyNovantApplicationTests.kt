@@ -10,4 +10,9 @@ class MyNovantApplicationTests {
 	fun contextLoads() {
 	}
 
+	@Test
+	fun base64encoding() {
+
+	}
+
 }
