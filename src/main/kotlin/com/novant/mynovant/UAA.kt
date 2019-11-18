@@ -1,5 +1,6 @@
 package com.novant.mynovant
 
+import com.github.kittinunf.fuel.httpDelete
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.json.FuelJson
 import com.github.kittinunf.fuel.json.responseJson
@@ -34,7 +35,7 @@ class UAA {
             val (d, e) = result
             apiToken = (d as FuelJson).obj().get("id_token") as String?
             successful = true
-        }.join();
+        }.join()
         logger.trace { "UAA#getOauthToken -- authenticated is $successful" }
         return mapOf(
                 "authenticated" to successful,
@@ -42,17 +43,34 @@ class UAA {
         )
     }
 
+    fun revokeOauthToken(jwt: Jwt): Boolean {
+        logger.trace { "UAA#revokeOauthToken | ${jwt.id}"}
+        // call the /oauth/token/revoke endpoint...
+        var revokedSuccessfully = false
+        var oauthTokenRevoke = "$uaaUrl/oauth/token/revoke/${jwt.id}"
+        var headerMap = mapOf(
+                "Accept" to "application/json",
+                "Authorization" to "Bearer ${jwt.tokenValue}",
+                "Content-Type" to "application/x-www-form-urlencoded"
+        )
+
+        oauthTokenRevoke.httpDelete().header(headerMap).response { request, response, _ ->
+            logger.trace { request }
+            logger.trace { response }
+
+            logger.debug { "Status Code: ${response.statusCode}"}
+
+            revokedSuccessfully = response.statusCode == 200
+        }.join()
+
+        return revokedSuccessfully
+    }
+
     fun isTokenActive(jwt: Jwt): Boolean { // jwt or jti??
         logger.trace { "UAA#isTokenActive -- jwt token is ${jwt.id}" }
-        logger.debug { "UAA#isTokenActive -- uaa is at $uaaUrl" }
-        // TODO call the introspect endpoint, return value of active key
-
         var active = false
         var oauthIntrospectEndpoint = "$uaaUrl/introspect"
         var credentials = base64("$clientId:$clientSecret")
-
-        logger.debug { "The base64-encoded creds: $credentials" }
-
         var headerMap = mapOf(
                 "Authorization" to "Basic $credentials",
                 "Content-Type" to "application/x-www-form-urlencoded"

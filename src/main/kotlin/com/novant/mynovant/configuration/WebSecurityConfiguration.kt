@@ -41,7 +41,9 @@ open class WebSecurityConfiguration : WebSecurityConfigurerAdapter() {
 //                .antMatchers(foo.toArrayOf(String)).permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/login").permitAll()
+//                .antMatchers("/logout").permitAll()
                 .antMatchers("/error").permitAll()
+
 //                .antMatchers("/logout").permitAll()
                 .anyRequest().authenticated()
 //            .and()
