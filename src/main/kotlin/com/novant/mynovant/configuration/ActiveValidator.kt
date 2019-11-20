@@ -21,15 +21,10 @@ class ActiveValidator : OAuth2TokenValidator<Jwt> {
 
     override fun validate(jwt: Jwt): OAuth2TokenValidatorResult {
         logger.trace { "ActiveValidator#validate: uaa is $uaa" }
-        if (uaa != null) {
-            return if (uaa.isTokenActive(jwt)) {
-                OAuth2TokenValidatorResult.success()
-            } else {
-                OAuth2TokenValidatorResult.failure(error)
-            }
+        return if (uaa.isTokenActive(jwt)) {
+            OAuth2TokenValidatorResult.success()
         } else {
-            logger.error {"UAA did not get injected?!"}
-            throw Exception("UAA did not get injected?")
+            OAuth2TokenValidatorResult.failure(error)
         }
     }
 }

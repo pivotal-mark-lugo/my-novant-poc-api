@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
-internal class AppointmentTest {
-    val doctor: Provider = Provider(-1, "Venkman", "Paranormal Investigations");
+class AppointmentTest {
+    private val doctor: Provider =
+            Provider(-1, "Venkman", "Paranormal Investigations");
 
     @Test
     fun getId() {

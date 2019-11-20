@@ -32,7 +32,7 @@ class UAA {
         var successful: Boolean = false;
         var apiToken: String? = null;
         oauthTokenEndpoint.httpPost().responseJson { _, _, result ->
-            val (d, e) = result
+            val (d, _) = result
             apiToken = (d as FuelJson).obj().get("id_token") as String?
             successful = true
         }.join()
@@ -79,7 +79,7 @@ class UAA {
         oauthIntrospectEndpoint.httpPost().header(headerMap).body(body).responseJson { req, rsp, result ->
             logger.debug{"req $req"}
             logger.debug{"rsp: $rsp"}
-            var (d, e) = result
+            var (d, _) = result
             logger.trace{"INTROSPECT RESPONSE: $d"}
             active = (d as FuelJson).obj().get("active") as Boolean
         }.join()
