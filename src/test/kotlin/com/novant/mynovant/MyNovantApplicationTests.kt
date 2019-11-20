@@ -5,14 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 class MyNovantApplicationTests {
-
 	@Test
 	fun contextLoads() {
 	}
-
-	@Test
-	fun base64encoding() {
-
-	}
-
 }
