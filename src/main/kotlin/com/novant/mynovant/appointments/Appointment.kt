@@ -2,7 +2,6 @@ package com.novant.mynovant.appointments
 
 import com.novant.mynovant.facilties.Facility
 import com.novant.mynovant.providers.Provider
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class Appointment(

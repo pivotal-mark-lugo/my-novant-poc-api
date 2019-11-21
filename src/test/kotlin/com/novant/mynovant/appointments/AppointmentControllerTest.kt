@@ -31,8 +31,8 @@ class AppointmentControllerTest {
                 value("Snow Brenner Daws")
         )
         .andExpect(
-                jsonPath("[0].type").
-                        value("Immunization")
+            jsonPath("[0].type").
+                value("Immunization")
         )
     }
 }

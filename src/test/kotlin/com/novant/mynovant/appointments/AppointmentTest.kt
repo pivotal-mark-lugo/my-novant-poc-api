@@ -1,22 +1,29 @@
 package com.novant.mynovant.appointments
 
+import com.novant.mynovant.facilties.Facility
 import com.novant.mynovant.providers.Provider
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 class AppointmentTest {
     private val doctor: Provider =
             Provider(-1, "Venkman", "Paranormal Investigations");
 
-    @Test
-    fun getId() {
-        val appointment: Appointment = Appointment(
+    private val facility: Facility =
+            Facility("Piedmont Pediatric")
+
+    private val appointment: Appointment = Appointment(
             -1234,
             "immunization",
-            LocalDate.parse("2019-01-01"),
-            doctor
-        );
+            LocalDateTime.parse("2019-01-01T12:34:56.789"),
+            doctor,
+            facility
+    );
+
+    @Test
+    fun getId() {
         Assertions.assertEquals(
             -1234,
             appointment.id
@@ -25,27 +32,14 @@ class AppointmentTest {
 
     @Test
     fun getDateTime() {
-        var date = LocalDate.parse("2018-12-12")
-        val appointment: Appointment = Appointment(
-            -1234,
-            "check-up",
-            date,
-            doctor
-        );
         Assertions.assertEquals(
-            LocalDate.parse("2018-12-12"),
+            LocalDateTime.parse("2019-01-01T12:34:56.789"),
             appointment.dateTime
         );
     }
 
     @Test
     fun getType() {
-        val appointment: Appointment = Appointment(
-            -1234,
-            "knee consultation",
-            LocalDate.parse("2020-01-01"),
-            doctor
-        );
-        Assertions.assertEquals("knee consultation", appointment.type);
+        Assertions.assertEquals("immunization", appointment.type);
     }
 }
