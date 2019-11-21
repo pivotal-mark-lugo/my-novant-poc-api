@@ -13,12 +13,12 @@ class MessageController {
     fun listMessages(): List<Message> {
         val doctor = Provider(-1, "Dr. Sherry Yanez", "Neurology")
         return listOf(
-                Message(
+                Message(1,
                         "Come in please for your appointment",
                         doctor,
                         "How are you feeling?",
                         LocalDateTime.parse("2020-01-20T12:34:56.789")),
-                Message("Hi there", doctor, "Is the medicine working?",
+                Message(2, "Hi there", doctor, "Is the medicine working?",
                         LocalDateTime.now())
         )
     }
