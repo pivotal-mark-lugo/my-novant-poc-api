@@ -11,6 +11,8 @@ import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -28,17 +30,17 @@ internal class MessageControllerTest {
         ).andExpect(
                 status().isOk
         ).andExpect(
-                jsonPath("[0].subject").
+                jsonPath("[1].subject").
                         value("Come in please for your appointment")
         ).andExpect(
-                jsonPath("[0].from.name").
+                jsonPath("[1].from.name").
                         value("Dr. Sherry Yanez")
         ).andExpect(
-                jsonPath("[0].text").
+                jsonPath("[1].text").
                         value("How are you feeling?")
         ).andExpect(
-                jsonPath("[0].dateTimeSent").
-                        value("2020-01-20T12:34:56.789")
+                jsonPath("[1].dateTimeSent").
+                        value("2019-01-20T12:34:56.789")
         )
     }
 }
